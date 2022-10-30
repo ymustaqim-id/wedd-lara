@@ -1,0 +1,76 @@
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\{{modelName}};
+
+class {{modelName}}Controller extends Controller
+{
+    public function create(Request $request)
+    {
+        ${{modelNameSingular}} = {{modelName}}::create($request->all());
+        return response()->json([
+            'code' => 200,
+            'status' => true,
+            'message' => "Success",
+            'data' => ${{modelNameSingular}}
+        ], 200);
+    }
+
+    public function show(Request $request)
+    {
+        if(!$request->id){
+            ${{modelNameSingular}} = {{modelName}}::all();
+        } else {
+            ${{modelNameSingular}} = {{modelName}}::findOrFail($request->id);
+        }
+        return response()->json([
+            'code' => 200,
+            'status' => true,
+            'message' => "Success",
+            'data' => ${{modelNameSingular}}
+        ], 200);
+    }
+
+    public function update(Request $request, $id)
+    {
+        ${{modelNameSingular}} = {{modelName}}::find($id);
+        if(!${{modelNameSingular}}){
+            return response()->json([
+                'code' => 200,
+                'status' => false,
+                'message' => "Failed"
+            ], 200);
+        }
+        ${{modelNameSingular}}->update($request->all());
+
+        return response()->json([
+            'code' => 200,
+            'status' => true,
+            'message' => "Success",
+            'data' => ${{modelNameSingular}}
+        ], 200);
+    }
+
+    public function delete(Request $request, $id)
+    {
+        ${{modelNameSingular}} = {{modelName}}::find($id);
+        if(!${{modelNameSingular}}){
+            return response()->json([
+                'code' => 200,
+                'status' => false,
+                'message' => "Failed"
+            ], 200);
+        }
+        {{modelName}}::destroy($id);
+
+        return response()->json([
+            'code' => 200,
+            'status' => true,
+            'message' => "Success"
+        ], 200);
+    }
+}
