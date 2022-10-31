@@ -53,3 +53,20 @@ Route::get('permission-role/get/{id}/menu', 'RoleController@hakmenus');
 Route::get('role/permission-role/get/{id}/menu', 'RoleController@hakmenus');
 Route::resource('role', 'RoleController');
 Route::delete('role/{id}/restore', 'RoleController@restore');
+
+// ========================================MAIN CONTENT
+Route::get('mempelai/load-data','MempelaiController@loadData');
+Route::resource('mempelai','MempelaiController');
+Route::delete('mempelai/{id}/restore','MempelaiController@restore');
+
+Route::get('acara/load-data','AcaraController@loadData');
+Route::resource('acara','AcaraController');
+Route::delete('acara/{id}/restore','AcaraController@restore');
+
+Route::get('story/load-data','StoryController@loadData');
+Route::resource('story','StoryController');
+Route::delete('story/{id}/restore','StoryController@restore');
+
+Route::get('undangan/load-data','UndanganController@loadData');
+Route::resource('undangan','UndanganController');
+Route::delete('undangan/{id}/restore','UndanganController@restore');
