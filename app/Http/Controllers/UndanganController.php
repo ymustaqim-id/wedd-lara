@@ -143,16 +143,16 @@ class UndanganController extends Controller
                 // }
                 $url_share=url("/?to=".$data['nama']);
 
-                $template ="Assalamualaikum"."\n";
-                $template .="Maha suci Allah yang telah menjadikan segala sesuatu lebih indah dan sempurna."."\n";
-                $template .="Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :"."\n";
-                $template .="*Ayu & Mustaqim*"."\n";
-                $template .="Berikut link untuk info lengkap dari acara kami untuk mengantarkan Bapak/Ibu, teman, serta sahabat ketujuan :"."\n";
-                $template .=$url_share."\n";
-                $template .="Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu."."\n";
-                $template .="Mohon maaf perihal undangan hanya di bagikan melalui  pesan ini."."\n";
-                $template .="Kami yang berbahagia"."\n";
-                $template .="*Ayu & Mustaqim*"."\n";
+                $template ="Assalamualaikum *".$data['nama']."*"."\n";
+                // $template .="Maha suci Allah yang telah menjadikan segala sesuatu lebih indah dan sempurna."."\n";
+                // $template .="Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :"."\n";
+                // $template .="*Ayu & Mustaqim*"."\n";
+                // $template .="Berikut link untuk info lengkap dari acara kami untuk mengantarkan Bapak/Ibu, teman, serta sahabat ketujuan :"."\n";
+                // $template .=$url_share."\n";
+                // $template .="Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu."."\n";
+                // $template .="Mohon maaf perihal undangan hanya di bagikan melalui  pesan ini."."\n";
+                // $template .="Kami yang berbahagia"."\n";
+                // $template .="*Ayu & Mustaqim*"."\n";
 
                 $edit=url("undangan/".$data->pk())."/edit";
                 $delete=url("undangan/".$data->pk());
@@ -161,13 +161,9 @@ class UndanganController extends Controller
                   $content .= "<a onclick='show_modal(\"$edit\")' class='btn btn-sm btn-icon btn-pure btn-default on-default edit-row ' data-toggle='tooltip' data-original-title='Edit'><i class='icon md-edit' aria-hidden='true'></i></a>";
                   $content .= " <a onclick='hapus(\"$delete\")' class='btn btn-sm btn-icon btn-pure btn-default on-default remove-row' data-toggle='tooltip' data-original-title='Remove'><i class='icon md-delete' aria-hidden='true'></i></a>";
                   $content .= " <a href='https://api.whatsapp.com/send/?phone=$phone&text=$template' class='btn btn-sm btn-icon btn-pure btn-default on-default remove-row' data-toggle='tooltip' data-original-title='Share' target='_blank'><i class='icon md-share' aria-hidden='true'></i></a>";
-                  $content .="<input value='$template' id='copy-to-clipboard-input' type='hidden'>";
-                    $content .="<div class='tooltip'>
-    <button class='btn btn-sm btn-icon btn-pure btn-default on-default remove-row'  id='copy-to-clipboard-button'>
-        <span class='tooltiptext' id='myTooltip'>Copy to clipboard</span>
-        Copy text
-    </button>
-</div>";
+                  $content .="  <button class='js-textareacopybtn' style='vertical-align:top;'>Copy Undangan</button>
+";
+                  $content .="<input class='js-textareacopybtn' value='$template' id='copy-to-clipboard-input' type='hidden'>";
 
                    return $content;
                })

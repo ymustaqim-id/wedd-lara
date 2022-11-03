@@ -70,3 +70,7 @@ Route::delete('story/{id}/restore','StoryController@restore');
 Route::get('undangan/load-data','UndanganController@loadData');
 Route::resource('undangan','UndanganController');
 Route::delete('undangan/{id}/restore','UndanganController@restore');
+
+Route::get('tundangan/load-data','TundanganController@loadData');
+Route::resource('tundangan','TundanganController');
+Route::delete('tundangan/{id}/restore','TundanganController@restore');

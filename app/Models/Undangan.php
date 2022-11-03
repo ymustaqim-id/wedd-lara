@@ -12,7 +12,7 @@ class Undangan extends Model {
     public $incrementing = true;
     public static function findRequested()
     {
-        $query = Mempelai::query();
+        $query = Undangan::query();
 
         // search results based on user input
         \Request::input('id') and $query->where('id',\Request::input('id'));

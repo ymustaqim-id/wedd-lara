@@ -99,80 +99,21 @@ $(function() {
     });
 });
 
-jQuery(document).ready(function($) {
-  $('#copy-to-clipboard-button').on('click', function(e) {
-    e.preventDefault();
-    
-    /* Get the text field */
-    var copyText = document.getElementById("copy-to-clipboard-input");
-    
-    /* Prevent iOS keyboard from opening */
-    copyText.readOnly = true;
+var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
 
-    /* Change the input's type to text so its text becomes selectable */
-    copyText.type = 'text';
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.focus();
+  copyTextarea.select();
 
-    /* Select the text field */
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-    /* Copy the text inside the text field */
-    navigator.clipboard.writeText(copyText.value);
-
-    /* Replace the tooltip's text */
-    var tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copied: " + copyText.value;
-
-    /* Change the input's type back to hidden */
-    copyText.type = 'hidden';
-  });
-  
-  $('#copy-to-clipboard-button').on('mouseout', function(e) {
-    var tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copy to clipboard";
-  });
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
 });
 
 </script>
-<style type="text/css">
-  .tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 140px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 7px 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -75px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 14px;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-</style>
-
 @endpush

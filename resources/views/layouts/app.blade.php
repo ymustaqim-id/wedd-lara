@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('admin_remark_base/') }}/global/vendor/bootstrap-sweetalert/sweetalert.css">
     <link rel="stylesheet" href="{{ asset('admin_remark_base/') }}/global/vendor/toastr/toastr.css">
     <link rel="stylesheet" href="{{ asset('admin_remark_base/') }}/assets/examples/css/advanced/toastr.css">
+    <link rel="stylesheet" href="{{ asset('admin_remark_base/') }}/global/vendor/summernote/summernote.css">
 
     <!-- datatable -->
         <link rel="stylesheet" href="{{ asset('admin_remark_base/') }}/global/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
@@ -127,6 +128,7 @@
       <script src="{{ asset('admin_remark_base/') }}/global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
       {{-- <script src="{{ asset('admin_remark_base/') }}/global/vendor/asrange/jquery-asRange.min.js"></script> --}}
       <script src="{{ asset('admin_remark_base/') }}/global/vendor/bootbox/bootbox.js"></script>
+      <script src="{{ asset('admin_remark_base/') }}/global/vendor/summernote/summernote.min.js"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('admin_remark_base/') }}/global/js/Component.js"></script>
@@ -149,6 +151,7 @@
     <script src="{{ asset('admin_remark_base/') }}/global/js/Plugin/asscrollable.js"></script>
     <script src="{{ asset('admin_remark_base/') }}/global/js/Plugin/slidepanel.js"></script>
     <script src="{{ asset('admin_remark_base/') }}/global/js/Plugin/switchery.js"></script>
+    <script src="{{ asset('admin_remark_base/') }}/global/js/Plugin/summernote.js"></script>
 
     <script src="{{ Asset('custom/dialog.js')}}" type="text/javascript"></script>
     <script>
