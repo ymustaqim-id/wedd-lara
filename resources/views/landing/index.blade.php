@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', $title='undangan')
+@section('title', $title='landing')
 @section('content')
    <div class="page-header">
-     <h1 class="page-title">undangan</h1>
+     <h1 class="page-title">landing</h1>
       @include('layouts.inc.breadcrumb')
      <div class="page-header-actions">
-     <a class="btn btn-block btn-primary data-modal" id="data-modal" href="#" onclick="show_modal('{{ route('undangan.create') }}')" >Tambah</a>
+     <a class="btn btn-block btn-primary data-modal" id="data-modal" href="#" onclick="show_modal('{{ route('landing.create') }}')" >Tambah</a>
      </div>
    </div>
    <div class="page-content">
@@ -21,15 +21,16 @@
          </div>
        </header>
        <div class="panel-body">
-         <!-- <table class="table table-bordered" id="undangans-table">
+         <!-- <table class="table table-bordered" id="landings-table">
 
          </table> -->
-         <table class="table table-hover dataTable table-striped w-full" id="undangan-table">
+         <table class="table table-hover dataTable table-striped w-full" id="landing-table">
            <thead>
                <tr>
                  <th width="5%">No</th>
-                 <th>nama</th>
-                 <th>wa</th>
+                 <th>nama mempelai</th>
+                 <th>keterangan</th>
+                 <th width="4%">foto</th>
                  <th>Action</th>
                </tr>
            </thead>
@@ -48,26 +49,27 @@
 $(function() {
 	$('.trash-ck').click(function(){
 		if ($('.trash-ck').prop('checked')) {
-			document.location = '{{ url("undangan?status=trash") }}';
+			document.location = '{{ url("landing?status=trash") }}';
 		} else {
-			document.location = '{{ url("undangan") }}';
+			document.location = '{{ url("landing") }}';
 		}
 	});
-    $('#undangan-table').DataTable({
+    $('#landing-table').DataTable({
     	stateSave: true,
   		processing : true,
   		serverSide : true,
   		pageLength:20,
       ajax : {
-				url:"{{ url('undangan/load-data') }}",
+				url:"{{ url('landing/load-data') }}",
 				data: function (d) {
 
         }
 			},
       columns: [
       	{ data: 'nomor', name: 'nomor',searchable:false,orderable:false },
-      	{ data: 'nama', name: 'nama' },
-      	{ data: 'wa', name: 'wa' },
+      	{ data: 'nama_mempelai', name: 'nama_mempelai' },
+      	{ data: 'keterangan', name: 'keterangan' },
+        { data: 'url_foto', name: 'url_foto' },
       	{ data: 'action', name: 'action', orderable: false, searchable: false },
     	],
     	language: {

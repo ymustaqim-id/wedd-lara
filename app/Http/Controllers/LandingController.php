@@ -1,19 +1,18 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Undangan;
-use App\Models\Tundangan;
+use App\Models\Landing;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Datatables;
 
-class UndanganController extends Controller
+class LandingController extends Controller
 {
-    public $viewDir = "undangan";
+    public $viewDir = "landing";
     public $breadcrumbs = array(
-         'permissions'=>array('title'=>'Undangan','link'=>"#",'active'=>false,'display'=>true),
+         'permissions'=>array('title'=>'Landing','link'=>"#",'active'=>false,'display'=>true),
        );
 
        public function __construct()
@@ -33,7 +32,7 @@ class UndanganController extends Controller
         */
        public function create()
        {
-           return $this->view("form",['undangan' => new Undangan]);
+           return $this->view("form",['landing' => new Landing]);
        }
 
        /**
@@ -44,11 +43,11 @@ class UndanganController extends Controller
         */
        public function store( Request $request )
        {
-           $this->validate($request, Undangan::validationRules());
+           $this->validate($request, Landing::validationRules());
 
-           $act=Undangan::create($request->all());
-           message($act,'Data undangan berhasil ditambahkan','Data undangan gagal ditambahkan');
-           return redirect('undangan');
+           $act=Landing::create($request->all());
+           message($act,'Data home landing berhasil ditambahkan','Data home landing gagal ditambahkan');
+           return redirect('landing');
        }
 
        /**
@@ -58,8 +57,8 @@ class UndanganController extends Controller
         */
        public function show(Request $request, $kode)
        {
-           $undangan=Undangan::find($kode);
-           return $this->view("show",['undangan' => $undangan]);
+           $landing=Landing::find($kode);
+           return $this->view("show",['landing' => $landing]);
        }
 
        /**
@@ -69,8 +68,8 @@ class UndanganController extends Controller
         */
        public function edit(Request $request, $kode)
        {
-           $undangan=Undangan::find($kode);
-           return $this->view( "form", ['undangan' => $undangan] );
+           $landing=Landing::find($kode);
+           return $this->view( "form", ['landing' => $landing] );
        }
 
        /**
@@ -81,22 +80,22 @@ class UndanganController extends Controller
         */
        public function update(Request $request, $kode)
        {
-           $undangan=Undangan::find($kode);
+           $landing=Landing::find($kode);
            if( $request->isXmlHttpRequest() )
            {
                $data = [$request->name  => $request->value];
-               $validator = \Validator::make( $data, Undangan::validationRules( $request->name ) );
+               $validator = \Validator::make( $data, Landing::validationRules( $request->name ) );
                if($validator->fails())
                    return response($validator->errors()->first( $request->name),403);
-               $undangan->update($data);
+               $landing->update($data);
                return "Record updated";
            }
-           $this->validate($request, Undangan::validationRules());
+           $this->validate($request, Landing::validationRules());
 
-           $act=$undangan->update($request->all());
-           message($act,'Data undangan berhasil diupdate','Data undangan gagal diupdate');
+           $act=$landing->update($request->all());
+           message($act,'Data home landing berhasil diupdate','Data home landing gagal diupdate');
 
-           return redirect('/undangan');
+           return redirect('/landing');
        }
 
        /**
@@ -106,13 +105,13 @@ class UndanganController extends Controller
         */
        public function destroy(Request $request, $kode)
        {
-           $undangan=Undangan::find($kode);
+           $landing=Landing::find($kode);
            $act=false;
            try {
-               $act=$undangan->forceDelete();
+               $act=$landing->forceDelete();
            } catch (\Exception $e) {
-               $undangan=Undangan::find($undangan->pk());
-               $act=$undangan->delete();
+               $landing=Landing::find($landing->pk());
+               $act=$landing->delete();
            }
        }
 
@@ -123,7 +122,7 @@ class UndanganController extends Controller
        public function loadData()
        {
            $GLOBALS['nomor']=\Request::input('start',1)+1;
-           $dataList = Undangan::select('*');
+           $dataList = Landing::select('*');
 
            if (request()->get('status') == 'trash') {
                $dataList->onlyTrashed();
@@ -135,24 +134,13 @@ class UndanganController extends Controller
                })
                ->addColumn('action', function ($data) {
 
-                $phone= $data['wa'];
 
-                $template ="Assalamualaikum *".$data['nama']."*,"."\n";
-                
-                $tundangan=Tundangan::first();
-                if (!empty($tundangan)) {
-                    $template_undangan = strip_tags($tundangan->template);
-                } else {
-                    $template_undangan = null;
-                }
-
-                $edit=url("undangan/".$data->pk())."/edit";
-                $delete=url("undangan/".$data->pk());
+                $edit=url("landing/".$data->pk())."/edit";
+                $delete=url("landing/".$data->pk());
                
                  $content = '';
-                  $content .= "<a onclick='show_modal(\"$edit\")' class='btn btn-info btn-sm' style='color:#ffffff'>Edit</a>";
-                  $content .= "<a onclick='hapus(\"$delete\")' class='btn btn-warning  btn-sm' style='color:#ffffff'>Hapus</a>";
-                  $content .= "<a href='https://api.whatsapp.com/send/?phone=$phone&text=$template' class='btn btn-primary  btn-sm' id='share_ke_wa' target='_blank'>Share ke ".$data['nama']."</a>";
+                  $content .= "<a onclick='show_modal(\"$edit\")' class='btn btn-sm btn-icon btn-pure btn-default on-default edit-row ' data-toggle='tooltip' data-original-title='Edit'><i class='icon md-edit' aria-hidden='true'></i></a>";
+                  $content .= " <a onclick='hapus(\"$delete\")' class='btn btn-sm btn-icon btn-pure btn-default on-default remove-row' data-toggle='tooltip' data-original-title='Remove'><i class='icon md-delete' aria-hidden='true'></i></a>";
                    return $content;
                })
                ->make(true);
