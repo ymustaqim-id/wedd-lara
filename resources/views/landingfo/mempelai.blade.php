@@ -1,0 +1,5 @@
+@extends('landingfo.template.head')
+@include('landingfo.template.body')
+@include('landingfo.template.header')
+@include('landingfo.sections.mempelai')
+@include('landingfo.template.footer')

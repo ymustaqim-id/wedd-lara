@@ -16,14 +16,13 @@ Route::get('/', function () {
     if (Auth::check()) {
         return redirect('home');
     } else {
-        return redirect('login');
+        return redirect('home-undangan');
     }
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/coba', 'HomeController@coba')->name('coba');
 
 Route::get('user/load-data','UserController@loadData');
 Route::get('user/json','UserController@json');
@@ -86,3 +85,17 @@ Route::delete('rsvp/{id}/restore','RsvpController@restore');
 Route::get('bukutamu/load-data','BukutamuController@loadData');
 Route::resource('bukutamu','BukutamuController');
 Route::delete('bukutamu/{id}/restore','BukutamuController@restore');
+
+Route::get('dash/load-data','DashController@loadData');
+Route::resource('dash','DashController');
+Route::delete('dash/{id}/restore','DashController@restore');
+
+//front end list here
+
+Route::resource('home-undangan','Fo\HomeUndanganController');
+Route::resource('mempelai','Fo\MempelaiController');
+Route::resource('acara','Fo\AcaraController');
+Route::resource('story','Fo\StoryController');
+Route::resource('rsvp','Fo\RsvpController');
+
+//end front end
