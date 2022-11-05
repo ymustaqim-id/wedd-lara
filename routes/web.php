@@ -78,3 +78,11 @@ Route::delete('tundangan/{id}/restore','TundanganController@restore');
 Route::get('landing/load-data','LandingController@loadData');
 Route::resource('landing','LandingController');
 Route::delete('landing/{id}/restore','LandingController@restore');
+
+Route::get('rsvp/load-data','RsvpController@loadData');
+Route::resource('rsvp','RsvpController');
+Route::delete('rsvp/{id}/restore','RsvpController@restore');
+
+Route::get('bukutamu/load-data','BukutamuController@loadData');
+Route::resource('bukutamu','BukutamuController');
+Route::delete('bukutamu/{id}/restore','BukutamuController@restore');
