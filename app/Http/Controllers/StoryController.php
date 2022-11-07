@@ -47,7 +47,7 @@ class StoryController extends Controller
 
            $act=Story::create($request->all());
            message($act,'Data story berhasil ditambahkan','Data story gagal ditambahkan');
-           return redirect('story');
+           return redirect('stories');
        }
 
        /**
@@ -95,7 +95,7 @@ class StoryController extends Controller
            $act=$story->update($request->all());
            message($act,'Data story berhasil diupdate','Data story gagal diupdate');
 
-           return redirect('/story');
+           return redirect('/stories');
        }
 
        /**
@@ -131,8 +131,8 @@ class StoryController extends Controller
                    return $GLOBALS['nomor']++;
                })
                ->addColumn('action', function ($data) {
-                   $edit=url("story/".$data->pk())."/edit";
-                   $delete=url("story/".$data->pk());
+                   $edit=url("stories/".$data->pk())."/edit";
+                   $delete=url("stories/".$data->pk());
                  $content = '';
                   $content .= "<a onclick='show_modal(\"$edit\")' class='btn btn-sm btn-icon btn-pure btn-default on-default edit-row ' data-toggle='tooltip' data-original-title='Edit'><i class='icon md-edit' aria-hidden='true'></i></a>";
                   $content .= " <a onclick='hapus(\"$delete\")' class='btn btn-sm btn-icon btn-pure btn-default on-default remove-row' data-toggle='tooltip' data-original-title='Remove'><i class='icon md-delete' aria-hidden='true'></i></a>";

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Fo;
 
 use Illuminate\Http\Request;
+use App\Models\Landing;
 
 class HomeUndanganController extends Controller
 {
@@ -14,6 +15,7 @@ class HomeUndanganController extends Controller
      */
     public function index()
     {
-        return view('landingfo/home');
+        $landing = Landing::all();
+        return view('landingfo/home', ['landing' => $landing,]);
     }
 }

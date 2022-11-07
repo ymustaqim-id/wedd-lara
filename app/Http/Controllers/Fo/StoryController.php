@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Fo;
 
 use Illuminate\Http\Request;
+use App\Models\Story;
 
 class StoryController extends Controller
 {
@@ -14,6 +15,7 @@ class StoryController extends Controller
      */
     public function index()
     {
-        return view('landingfo/story');
+        $stories = Story::all();
+        return view('landingfo/story', ['stories' => $stories,]);
     }
 }

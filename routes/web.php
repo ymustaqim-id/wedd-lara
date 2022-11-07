@@ -62,9 +62,9 @@ Route::get('acara/load-data','AcaraController@loadData');
 Route::resource('acara','AcaraController');
 Route::delete('acara/{id}/restore','AcaraController@restore');
 
-Route::get('story/load-data','StoryController@loadData');
-Route::resource('story','StoryController');
-Route::delete('story/{id}/restore','StoryController@restore');
+Route::get('stories/load-data','StoryController@loadData');
+Route::resource('stories','StoryController');
+Route::delete('stories/{id}/restore','StoryController@restore');
 
 Route::get('undangan/load-data','UndanganController@loadData');
 Route::resource('undangan','UndanganController');

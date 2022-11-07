@@ -6,7 +6,7 @@
      <h1 class="page-title">story</h1>
       @include('layouts.inc.breadcrumb')
      <div class="page-header-actions">
-     <a class="btn btn-block btn-primary data-modal" id="data-modal" href="#" onclick="show_modal('{{ route('story.create') }}')" >Tambah</a>
+     <a class="btn btn-block btn-primary data-modal" id="data-modal" href="#" onclick="show_modal('{{ route('stories.create') }}')" >Tambah</a>
      </div>
    </div>
    <div class="page-content">
@@ -49,9 +49,9 @@
 $(function() {
 	$('.trash-ck').click(function(){
 		if ($('.trash-ck').prop('checked')) {
-			document.location = '{{ url("story?status=trash") }}';
+			document.location = '{{ url("stories?status=trash") }}';
 		} else {
-			document.location = '{{ url("story") }}';
+			document.location = '{{ url("stories") }}';
 		}
 	});
     $('#story-table').DataTable({
@@ -60,7 +60,7 @@ $(function() {
   		serverSide : true,
   		pageLength:20,
       ajax : {
-				url:"{{ url('story/load-data') }}",
+				url:"{{ url('stories/load-data') }}",
 				data: function (d) {
 
         }
