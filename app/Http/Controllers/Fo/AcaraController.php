@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Fo;
 
 use Illuminate\Http\Request;
+use App\Models\Acara;
 
 class AcaraController extends Controller
 {
@@ -14,6 +15,11 @@ class AcaraController extends Controller
      */
     public function index()
     {
-        return view('landingfo/acara');
+        $akad = '1';
+        $resepsi = '2';
+        $akad = Acara::where('jenis_acara', $akad)->first();
+        $resepsi = Acara::where('jenis_acara', $resepsi)->first();
+
+        return view('landingfo/acara', ['akad' => $akad, 'resepsi' => $resepsi]);
     }
 }

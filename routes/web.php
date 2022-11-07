@@ -16,7 +16,7 @@ Route::get('/', function () {
     if (Auth::check()) {
         return redirect('home');
     } else {
-        return redirect('home-undangan');
+        return redirect('invitations');
     }
 });
 
@@ -92,9 +92,9 @@ Route::delete('dash/{id}/restore','DashController@restore');
 
 //front end list here
 
-Route::resource('home-undangan','Fo\HomeUndanganController');
-Route::resource('mempelai','Fo\MempelaiController');
-Route::resource('acara','Fo\AcaraController');
+Route::resource('invitations','Fo\HomeUndanganController');
+Route::resource('couple','Fo\MempelaiController');
+Route::resource('agenda','Fo\AcaraController');
 Route::resource('story','Fo\StoryController');
 Route::resource('rsvp','Fo\RsvpController');
 

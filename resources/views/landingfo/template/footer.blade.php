@@ -17,8 +17,8 @@
                                     <h3>Information</h3>
                                 </div>
                                 <ul>
-                                    <li><a href="{{ url('/') }}/mempelai">Couple</a></li>
-                                    <li><a href="{{ url('/') }}/acara">Agenda</a></li>
+                                    <li><a href="{{ url('/') }}/couple">Couple</a></li>
+                                    <li><a href="{{ url('/') }}/agenda">Agenda</a></li>
                                     <li><a href="{{ url('/') }}/story">Story</a></li>
                                     <li><a href="{{ url('/') }}/rsvp">Rsvp</a></li>
                                 </ul>

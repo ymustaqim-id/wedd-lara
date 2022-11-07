@@ -8,8 +8,8 @@
                         <div class="couple-img">
                             <img src="loveme/assets/images/couple/2.jpg" alt="">
                         </div>
-                        <h3>Daniel Oliver</h3>
-                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis give you com of system. </p>
+                        <h3>{!! isset($pria->nama) ? $pria->nama : '' !!}</h3>
+                        <p>{!! isset($pria->biodata) ? $pria->biodata : '' !!}</p>
                         <div class="social">
                             <ul>
                                 <li><a href="#"><i class="ti-facebook"></i></a></li>
@@ -26,8 +26,8 @@
                         <div class="couple-img">
                             <img src="loveme/assets/images/couple/3.jpg" alt="">
                         </div>
-                        <h3>Sarah Margrate</h3>
-                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis give you com of system. </p>
+                        <h3>{!! isset($wanita->nama) ? $wanita->nama : '' !!}</h3>
+                        <p>{!! isset($wanita->biodata) ? $wanita->biodata : '' !!}</p>
                         <div class="social">
                             <ul>
                                 <li><a href="#"><i class="ti-facebook"></i></a></li>

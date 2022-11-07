@@ -27,10 +27,10 @@
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li class="">
-                                            <a href="{{ url('/') }}/mempelai">Couple</a>
+                                            <a href="{{ url('/') }}/couple">Couple</a>
                                         </li>
                                         <li class="">
-                                            <a href="{{ url('/') }}/acara" onclick="document.getElementById('myAudio').play()" >Agenda</a>
+                                            <a href="{{ url('/') }}/agenda" onclick="document.getElementById('myAudio').play()" >Agenda</a>
                                         </li>
                                         <li class="">
                                             <a href="{{ url('/') }}/story">Story</a>
