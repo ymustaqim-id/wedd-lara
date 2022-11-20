@@ -14,7 +14,7 @@
 Route::get('/', function () {
     // return view('welcome');
     if (Auth::check()) {
-        return redirect('home');
+        return redirect('dashboard');
     } else {
         return redirect('invitations');
     }
