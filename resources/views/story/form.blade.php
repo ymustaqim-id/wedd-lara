@@ -1,6 +1,6 @@
 
 <div class="modal-dialog modal-simple">
-  {{ Form::model($story,array('route' => array((!$story->exists) ? 'story.store':'story.update',$story->pk()),
+  {{ Form::model($story,array('route' => array((!$story->exists) ? 'stories.store':'stories.update',$story->pk()),
   'class'=>'modal-content','id'=>'story-form','method'=>(!$story->exists) ? 'POST' : 'PUT')) }}
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

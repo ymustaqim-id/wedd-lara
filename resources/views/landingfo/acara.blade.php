@@ -20,7 +20,7 @@
 				<div class="col col-lg-6 col-md-6 col-12">
 					<div class="wpo-event-item">
 						<div class="wpo-event-text">
-							<h2>Mariage Ceremony</h2>
+							<h2>Mariage Ceremony (AKAD)</h2>
 							<ul>
 								<li>{!! isset($akad->waktu) ? $akad->waktu : '' !!}</li>
 								<li>{!! isset($akad->tempat) ? $akad->tempat : '' !!}</li>

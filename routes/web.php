@@ -78,9 +78,10 @@ Route::get('landing/load-data','LandingController@loadData');
 Route::resource('landing','LandingController');
 Route::delete('landing/{id}/restore','LandingController@restore');
 
-Route::get('rsvp/load-data','RsvpController@loadData');
-Route::resource('rsvp','RsvpController');
-Route::delete('rsvp/{id}/restore','RsvpController@restore');
+Route::get('rsvps/load-data','RsvpController@loadData');
+Route::post('rsvps/storeRsvp','Fo\RsvpController@storeRsvp')->name('rsvps.storeRsvp');
+Route::resource('rsvps','RsvpController');
+Route::delete('rsvps/{id}/restore','RsvpController@restore');
 
 Route::get('bukutamu/load-data','BukutamuController@loadData');
 Route::resource('bukutamu','BukutamuController');

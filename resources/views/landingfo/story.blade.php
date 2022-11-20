@@ -21,84 +21,48 @@
 				<div class="story-timeline">
 					<div class="round-shape"></div>
 					@foreach($stories as $p)
-					<div class="row">
-						<div class="col col-lg-6 col-12">
-							<div class="story-text right-align-text">
-								<h3>{{ $p->judul }}</h3>
-								<span class="date">{{ $p->waktu }}</span>
-								<p>{{ $p->story }}</p>
-							</div>
-						</div>
-						<div class="col col-lg-6 col-12">
-							<div class="img-holder">
-								<img src="{{ $p->foto }}" alt class="img img-responsive">
-								<div class="story-shape-img">
-									<img src="loveme/assets/images/story/shape.png" alt="">
+						@if($loop->iteration % 2 == 0)
+							<div class="row">
+								<div class="col col-lg-6 col-12">
+									<div class="story-text right-align-text">
+										<h3>{{ $p->judul }}</h3>
+										<span class="date">{{ $p->waktu }}</span>
+										<p>{{ $p->story }}</p>
+									</div>
+								</div>
+								<div class="col col-lg-6 col-12">
+									<div class="img-holder">
+										<img src="{{ $p->foto }}" alt class="img img-responsive">
+										<div class="story-shape-img">
+											<img src="loveme/assets/images/story/shape.png" alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
+						@else
+							<div class="row">
+								<div class="col col-lg-6 col-12">
+									<div class="img-holder right-align-text left-site">
+										<img src="loveme/assets/images/story/2.jpg" alt class="img img-responsive">
+										<div class="story-shape-img">
+											<img src="loveme/assets/images/story/shape.png" alt="">
+										</div>
+									</div>
+								</div>
+								<div class="col col-lg-6 col-12 text-holder">
+									<span class="heart">
+										<i class="fi flaticon-heart"></i>
+									</span>
+									<div class="story-text">
+										<h3>{{ $p->judul }}</h3>
+										<span class="date">{{ $p->waktu }}</span>
+										<p>{{ $p->story }}</p>
+									</div>
+								</div>
+							</div>
+						@endif
 					@endforeach
-					<!-- <div class="row">
-						<div class="col col-lg-6 col-12">
-							<div class="img-holder right-align-text left-site">
-								<img src="loveme/assets/images/story/2.jpg" alt class="img img-responsive">
-								<div class="story-shape-img">
-									<img src="loveme/assets/images/story/shape.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col col-lg-6 col-12 text-holder">
-							<span class="heart">
-								<i class="fi flaticon-heart"></i>
-							</span>
-							<div class="story-text">
-								<h3>First Date</h3>
-								<span class="date">Dec 25,2021</span>
-								<p>I must explain to you how all this mistaken idea of denouing pleasure and praising pain was born and I will give you com acount of system,the actual teach</p>
-							</div>
-						</div>
-					</div> -->
-					<!-- <div class="row">
-						<div class="col col-lg-6 col-12 text-holder right-heart">
-							<span class="heart">
-								<i class="fi flaticon-calendar"></i>
-							</span>
-							<div class="story-text right-align-text">
-								<h3>Marriage Proposal</h3>
-								<span class="date">Nov 12,2021</span>
-								<p>I must explain to you how all this mistaken idea of denouing pleasure and praising pain was born and I will give you com acount of system,the actual teach</p>
-							</div>
-						</div>
-						<div class="col col-lg-6 col-12">
-							<div class="img-holder right-align-text">
-								<img src="loveme/assets/images/story/3.jpg" alt class="img img-responsive">
-								<div class="story-shape-img">
-									<img src="loveme/assets/images/story/shape.png" alt="">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col col-lg-6 col-12">
-							<div class="img-holder video-holder left-site">
-								<img src="loveme/assets/images/story/4.jpg" alt class="img img-responsive">
-								<div class="story-shape-img">
-									<img src="loveme/assets/images/story/shape.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col col-lg-6 col-12 text-holder">
-							<span class="heart">
-								<i class="fi flaticon-dove"></i>
-							</span>
-							<div class="story-text">
-								<h3>Our Engagement</h3>
-								<span class="date">Dec 25,2021</span>
-								<p>I must explain to you how all this mistaken idea of denouing pleasure and praising pain was born and I will give you com acount of system,the actual teach</p>
-							</div>
-						</div>
-					</div> -->
+
 					<div class="row">
 						<div class="col offset-lg-6 col-lg-6 col-12 text-holder">
 							<span class="heart">

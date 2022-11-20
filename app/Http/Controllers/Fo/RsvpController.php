@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Fo;
 
+use App\Models\Rsvp;
 use Illuminate\Http\Request;
 
 class RsvpController extends Controller
@@ -16,4 +17,18 @@ class RsvpController extends Controller
     {
         return view('landingfo/rsvp');
     }
+
+    public function storeRsvp( Request $request )
+       {
+           $act=Rsvp::create($request->all());
+           if ($act) {
+            $response = 1;
+           } else {
+            $response = 2;
+           }
+
+           return response()->json([
+            'response' => $response,
+        ]);
+       }
 }

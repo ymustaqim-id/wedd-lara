@@ -16,6 +16,7 @@ class StoryController extends Controller
     public function index()
     {
         $stories = Story::all();
-        return view('landingfo/story', ['stories' => $stories,]);
+        $counter = Story::count();
+        return view('landingfo/story', ['stories' => $stories,'counter' => $counter]);
     }
 }

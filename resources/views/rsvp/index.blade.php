@@ -31,7 +31,7 @@
                  <th>nama</th>
                  <th>wish</th>
                  <th>kehadiran</th>
-                 <th>Action</th>
+                 <!-- <th>Action</th> -->
                </tr>
            </thead>
          </table>
@@ -49,9 +49,9 @@
 $(function() {
 	$('.trash-ck').click(function(){
 		if ($('.trash-ck').prop('checked')) {
-			document.location = '{{ url("rsvp?status=trash") }}';
+			document.location = '{{ url("rsvps?status=trash") }}';
 		} else {
-			document.location = '{{ url("rsvp") }}';
+			document.location = '{{ url("rsvps") }}';
 		}
 	});
     $('#rsvp-table').DataTable({
@@ -60,7 +60,7 @@ $(function() {
   		serverSide : true,
   		pageLength:20,
       ajax : {
-				url:"{{ url('rsvp/load-data') }}",
+				url:"{{ url('rsvps/load-data') }}",
 				data: function (d) {
 
         }
@@ -70,7 +70,7 @@ $(function() {
       	{ data: 'nama', name: 'nama' },
       	{ data: 'wish', name: 'wish' },
         { data: 'kehadiran', name: 'kehadiran' },
-      	{ data: 'action', name: 'action', orderable: false, searchable: false },
+      	// { data: 'action', name: 'action', orderable: false, searchable: false },
     	],
     	language: {
           lengthMenu : '{{ "Menampilkan _MENU_ data" }}',
