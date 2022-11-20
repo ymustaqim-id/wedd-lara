@@ -91,6 +91,8 @@ Route::get('dash/load-data','DashController@loadData');
 Route::resource('dash','DashController');
 Route::delete('dash/{id}/restore','DashController@restore');
 
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
 //front end list here
 
 Route::resource('invitations','Fo\HomeUndanganController');
